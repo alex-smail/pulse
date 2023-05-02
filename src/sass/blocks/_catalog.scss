@@ -1,0 +1,115 @@
+.catalog {
+    padding-bottom: 100px;
+    &__title {
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 45px;
+        color: #0D0D0D;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__tabs {
+        list-style-type: none;
+        margin-top: 46px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    &__tab {
+        width: 222px;
+        height: 52px;
+        border: 2px solid #D0D0D0;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 52px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #6B6B6B;
+        transform: skewX(-25deg);
+        margin: 0 5px;
+        cursor: pointer;
+        transition: .5s all;
+        &:hover {
+            box-shadow: 3px 3px 20px $main-color;
+            border: none
+        }
+        div {
+            transform: skewX(25deg);
+        }
+        &_active {
+            color: #fff;
+            background-color: $main-color;
+            border: none;
+
+        }
+    }
+    &__content {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-rows: repeat(auto-fit, 1fr);
+        row-gap: 19px;
+        column-gap: 17px;
+    }
+    &-item {
+        width: 303px;
+        min-height: 442px;
+        border: 2px solid #E8E8E8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__img {
+            margin: 20px auto 15px;
+            max-width: 100%;
+        }
+        &__subtitle {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 25px;
+            margin: 0;
+        }
+        &__descr {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 22px;
+            padding: 0 26px;
+            margin: 15px 0 10px;
+            text-align: center;
+        }
+        &__link {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 14px;
+            color: $main-color;
+            padding-bottom: 17px;
+            border-bottom: 1px solid #E8E8E8;
+            width: 263px;
+            margin: 0 20px 17px;
+            text-align: center;
+            transition: .5s;
+            &:hover {
+                opacity: .7;
+            }
+        }
+        &__footer {
+            display: flex;
+            flex-direction: row;
+        }
+        &__prices {
+            margin-right: 25px;
+        }
+        &__old-price {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 14px;
+            text-decoration-line: line-through;
+            color: #555555;
+        }
+        &__price {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 20px;
+        }
+    }
+}
