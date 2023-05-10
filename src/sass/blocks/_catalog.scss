@@ -46,35 +46,39 @@
     }
     &__content {
         margin-top: 60px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        display: none;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
         grid-template-rows: repeat(auto-fit, 1fr);
         row-gap: 19px;
         column-gap: 17px;
+        &_active {
+            display: grid;
+        }
     }
     &-item {
-        width: 303px;
-        min-height: 442px;
+        width: 300px;
+        min-height: 440px;
         border: 2px solid #E8E8E8;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        overflow: hidden;
         &__img {
-            margin: 20px auto 15px;
+            display: block;
+            margin: 0 auto;
             max-width: 100%;
+            height: 200px;
+            margin-top: 20px;
         }
         &__subtitle {
+            margin: 15px;
             font-weight: 700;
             font-size: 16px;
             line-height: 25px;
-            margin: 0;
+            text-align: center;
         }
         &__descr {
             font-weight: 300;
             font-size: 14px;
             line-height: 22px;
-            padding: 0 26px;
-            margin: 15px 0 10px;
+            margin: 15px 26px 0;
             text-align: center;
         }
         &__link {
@@ -82,22 +86,27 @@
             font-size: 14px;
             line-height: 14px;
             color: $main-color;
-            padding-bottom: 17px;
-            border-bottom: 1px solid #E8E8E8;
-            width: 263px;
-            margin: 0 20px 17px;
+            display: block;
             text-align: center;
             transition: .5s;
+            border-bottom: 1px solid #E8E8E8;
+            padding-bottom: 17px;
+            width: 265px;
+            margin: 10px auto 17px;
             &:hover {
                 opacity: .7;
             }
         }
         &__footer {
             display: flex;
-            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
         }
         &__prices {
-            margin-right: 25px;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 20px;
+            margin-left: 20px;
         }
         &__old-price {
             font-weight: 300;
@@ -110,6 +119,67 @@
             font-weight: 700;
             font-size: 20px;
             line-height: 20px;
+        }
+        &__wrapper {
+            width: calc(200% + 40px);
+            display: flex;
+        }
+        &__content {
+            width: 50%;
+            margin-right: 20px;
+            transform: translateX(-100%);
+            transition: .5s all;
+            &_active {
+                transform: translateX(0%);
+                margin-right: 0;
+            }
+        }
+        &__list {
+            width: 50%;
+            margin-left: 0;
+            transform: translateX(0%);
+            transition: .5s all;
+            margin-bottom: 0;
+            list-style-type: none;
+            &_active {
+                transform: translateX(-100%);
+                margin-left: 20px;
+                padding-right: 20px;
+            }
+            li {
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 21px;
+                color: #555555;
+                position: relative;
+                margin-bottom: 10px;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 8px;
+                    left: -15px;
+                    width: 5px;
+                    height: 5px;
+                    background-color: $main-color;
+                }
+            }
+        }
+        &__back {
+            position: absolute;
+            bottom: 17px;
+            right: 28px;
+            border-bottom: 1px solid #E8E8E8;
+            padding-bottom: 17px;
+            width: 265px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 14px;
+            color: $main-color;
+            display: block;
+            text-align: center;
+            &:hover {
+                opacity: .7;
+            }
         }
     }
 }
