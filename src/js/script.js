@@ -32,4 +32,33 @@ $(document).ready(function(){
 
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
+
+
+    const elements = document.querySelectorAll('.hidden'); // выбираем элементы, которые нужно анимировать
+
+    const isInViewport = function(element) { // функция, проверяющая, находится ли элемент в видимой области
+        const rect = element.getBoundingClientRect();
+            return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
+
+    const animateElement = function(element) { // функция, отображающая элемент с анимацией
+        element.classList.add('visible');
+    };
+
+    const handleScroll = function() { // функция, обрабатывающая скролл страницы
+        elements.forEach((element) => {
+            if (isInViewport(element)) { // если элемент находится в видимой области
+                animateElement(element); // отображаем его с анимацией
+            }
+        });
+    };
+
+    window.addEventListener('scroll', handleScroll); // при прокрутке страницы запускаем функцию handleScroll
 });
+
+//  напиши код JS для плавно выплыввающего текста снизу вверх при проккрутке сайта  
