@@ -215,5 +215,10 @@
         &__tab {
             width: 240px;
         }
+        &-item {
+            &__footer {
+                padding-bottom: 20px;
+            }
+        }
     }
 }
