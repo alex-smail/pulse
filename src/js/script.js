@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    // Carousel
     $('.carousel__inner').slick({
         speed: 1200,
         prevArrow: '<button type="button" class="slick-prev"><img src="image/arrow_left.svg"></button>',
@@ -14,6 +15,7 @@ $(document).ready(function(){
         ]
     });
 
+    // Slider
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
         $(this)
           .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
@@ -33,7 +35,7 @@ $(document).ready(function(){
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
 
-
+    // Всплывающий текст в блоке reviews
     const elements = document.querySelectorAll('.hidden'); // выбираем элементы, которые нужно анимировать
 
     const isInViewport = function(element) { // функция, проверяющая, находится ли элемент в видимой области
@@ -59,6 +61,29 @@ $(document).ready(function(){
     };
 
     window.addEventListener('scroll', handleScroll); // при прокрутке страницы запускаем функцию handleScroll
-});
 
-//  напиши код JS для плавно выплыввающего текста снизу вверх при проккрутке сайта  
+    // Modal окна
+    
+    // $('[data-modal="consultation"]').on('click', function() {
+    //     $('.overlay, #consultation').fadeIn('slow');
+    // });
+    // $('.modal__close').on('click', function() {
+    //     $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
+    // });
+    
+    // $('.button_catalog').each(function(i) {
+    //     $(this).on('click', function() {
+    //         $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+    //         $('.overlay, #order').fadeIn('slow');
+    //     })
+    // });
+
+    $('[data-modal="consultation"]').click(() => $('.overlay, #consultation').fadeIn('slow'))
+    $('.modal__close').click(() => $('.overlay, #consultation, #order, #thanks').fadeOut('slow'))
+    $('.button_catalog').each((i, e) => $(e).click(() => { 
+        $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text())
+        $('.overlay, #order').fadeIn('slow')
+    }))
+
+});
+ 
