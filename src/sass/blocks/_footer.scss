@@ -1,6 +1,10 @@
 .footer {
     height: 630px;
     position: relative;
+    &__map {
+        width: 100%;
+        border: none;
+    }
     &__info {
         position: absolute;
         top: 0;

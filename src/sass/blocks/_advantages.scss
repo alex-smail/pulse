@@ -26,6 +26,9 @@
         width: 70px;
         margin: 0 auto;
         display: block;
+        &-animation {
+            animation: heartbeat 2s ease infinite;
+        }
     }
     &__subtitle {
         font-weight: 700;

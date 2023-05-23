@@ -164,12 +164,17 @@
                     height: 5px;
                     background-color: $main-color;
                 }
+                &:nth-child(5)::before {
+                    background-color: #fff; 
+                }
             }
         }
         &__back {
             position: absolute;
-            bottom: 17px;
-            right: 28px;
+            // bottom: 17px;
+            // right: 28px;
+            bottom: -115px;
+            right: 16px;
             border-bottom: 1px solid #E8E8E8;
             padding-bottom: 17px;
             width: 265px;
@@ -179,6 +184,8 @@
             color: $main-color;
             display: block;
             text-align: center;
+            margin: 0;
+            text-decoration: underline;
             &:hover {
                 opacity: .7;
             }

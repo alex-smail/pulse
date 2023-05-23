@@ -63,21 +63,6 @@ $(document).ready(function(){
     window.addEventListener('scroll', handleScroll); // при прокрутке страницы запускаем функцию handleScroll
 
     // Modal окна
-    
-    // $('[data-modal="consultation"]').on('click', function() {
-    //     $('.overlay, #consultation').fadeIn('slow');
-    // });
-    // $('.modal__close').on('click', function() {
-    //     $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
-    // });
-    
-    // $('.button_catalog').each(function(i) {
-    //     $(this).on('click', function() {
-    //         $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
-    //         $('.overlay, #order').fadeIn('slow');
-    //     })
-    // });
-
     $('[data-modal="consultation"]').click(() => $('.overlay, #consultation').fadeIn('slow'))
     $('.modal__close').click(() => $('.overlay, #consultation, #order, #thanks').fadeOut('slow'))
     $('.button_catalog').each((i, e) => $(e).click(() => { 
@@ -139,5 +124,19 @@ $(document).ready(function(){
         });
         return false;
     });
+
+    //  Scroll
+    $(window).scroll(() => {
+        const scrollTop = $(window).scrollTop();
+        if (scrollTop > 1600) {
+          $('.pageup').fadeIn();
+        } else {
+          $('.pageup').fadeOut();
+        }
+    });
+
+    $('.pageup').click(() => {
+        $('html, body').animate({scrollTop: 0}, 1000);
+      });
 });
  
